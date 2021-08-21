@@ -25,7 +25,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.plcoding.meditationui.Feature
+import com.plcoding.meditationui.R
 import com.plcoding.meditationui.standardQuadFromTo
+import com.plcoding.meditationui.ui.components.BottomMenuContent
 import com.plcoding.meditationui.ui.theme.*
 import kotlinx.coroutines.launch
 
@@ -102,23 +104,23 @@ fun HomeView(navController: NavController) {
                     items = listOf(
                         BottomMenuContent(
                             "Home",
-                            com.plcoding.meditationui.R.drawable.ic_home
+                            R.drawable.ic_home
                         ),
                         BottomMenuContent(
                             "Meditate",
-                            com.plcoding.meditationui.R.drawable.ic_bubble
+                            R.drawable.ic_bubble
                         ),
                         BottomMenuContent(
                             "Sleep",
-                            com.plcoding.meditationui.R.drawable.ic_moon
+                            R.drawable.ic_moon
                         ),
                         BottomMenuContent(
                             "Music",
-                            com.plcoding.meditationui.R.drawable.ic_music
+                            R.drawable.ic_music
                         ),
                         BottomMenuContent(
                             "Profile",
-                            com.plcoding.meditationui.R.drawable.ic_profile
+                            R.drawable.ic_profile
                         ),
                     ), modifier = Modifier.align(Alignment.BottomCenter),
                     navController = navController
