@@ -35,10 +35,10 @@ import kotlinx.coroutines.launch
 
 
 
-
+@ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @Composable
-fun HomeView(navController: NavController) {
+fun HomeView(onNavigateToDetailScreen: (String) -> Unit) {
 
     val scaffoldState = rememberScaffoldState()
     Surface(
@@ -62,8 +62,7 @@ fun HomeView(navController: NavController) {
                             "Depression"
                         ),
                         scaffoldState = scaffoldState,
-                        navController = navController
-                    )
+                        onNavigateToDetailScreen = onNavigateToDetailScreen                    )
 
                     FeatureSection(
                         features = listOf(
@@ -123,8 +122,7 @@ fun HomeView(navController: NavController) {
                             R.drawable.ic_profile
                         ),
                     ), modifier = Modifier.align(Alignment.BottomCenter),
-                    navController = navController
-                )
+                    onNavigateToDetailScreen = onNavigateToDetailScreen                )
 
 
             }
@@ -142,7 +140,7 @@ fun BottomMenu(
     activeHighlightColor: Color = ButtonBlue,
     activeTextColor: Color = Color.White,
     inactiveTextColor: Color = AquaBlue,
-    navController: NavController,
+    onNavigateToDetailScreen: (String) -> Unit,
     initialSelectedItemIndex: Int = 0
 ) {
     var selectedItemIndex by remember {
@@ -165,11 +163,7 @@ fun BottomMenu(
                 inactiveTextColor = inactiveTextColor
             ) {
                 selectedItemIndex = index
-                navController.navigate(
-
-                    //"pokemon_saved_favorites_screen/${dominantColor.toArgb()}/${entry.pokemonName}"
-                    "detail_screen"
-                )
+                onNavigateToDetailScreen("detail_screen")
 
             }
         }
@@ -429,7 +423,7 @@ fun GreetingSection(
 fun ChipSection(
     chips: List<String>,
     scaffoldState: ScaffoldState,
-    navController: NavController
+    onNavigateToDetailScreen: (String) -> Unit
 ) {
     var selectedChipIndex by remember {
         mutableStateOf(0)
@@ -445,15 +439,9 @@ fun ChipSection(
                     modifier = Modifier
                         .padding(start = 15.dp, top = 15.dp, bottom = 15.dp)
                         .clickable {
-                            //////////
-                            navController.navigate(
 
-                                //"pokemon_saved_favorites_screen/${dominantColor.toArgb()}/${entry.pokemonName}"
-                                "detail_screen"
-                            )
+                            onNavigateToDetailScreen("detail_screen")
 
-
-                            /////////
                             selectedChipIndex = it
                             scope.launch {
                                 scaffoldState.snackbarHostState.showSnackbar("Hello")
