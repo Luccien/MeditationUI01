@@ -25,7 +25,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetpackComposeTheme {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
@@ -73,7 +72,7 @@ class MainActivity : ComponentActivity() {
 
                     }*/
                 }
-            }
+
         }
     }
 }

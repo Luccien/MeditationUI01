@@ -38,14 +38,8 @@ import kotlinx.coroutines.launch
 @ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @Composable
-fun HomeView(onNavigateToDetailScreen: (String) -> Unit) {
-
-    val scaffoldState = rememberScaffoldState()
-    Surface(
-        color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Scaffold(scaffoldState = scaffoldState) {
+fun HomeView(onNavigateToDetailScreen: (String) -> Unit,
+             scaffoldState:ScaffoldState) {
 
             Box(
                 modifier = Modifier
@@ -124,11 +118,8 @@ fun HomeView(onNavigateToDetailScreen: (String) -> Unit) {
                     ), modifier = Modifier.align(Alignment.BottomCenter),
                     onNavigateToDetailScreen = onNavigateToDetailScreen                )
 
-
             }
 
-        }
-    }
 }
 
 
@@ -440,7 +431,7 @@ fun ChipSection(
                         .padding(start = 15.dp, top = 15.dp, bottom = 15.dp)
                         .clickable {
 
-                            onNavigateToDetailScreen("detail_screen")
+                            //onNavigateToDetailScreen("detail_screen")
 
                             selectedChipIndex = it
                             scope.launch {
