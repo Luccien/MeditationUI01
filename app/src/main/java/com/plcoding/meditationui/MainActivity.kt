@@ -20,6 +20,8 @@ import androidx.navigation.compose.*
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
     @ExperimentalFoundationApi
     @ExperimentalComposeUiApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,20 +36,16 @@ class MainActivity : ComponentActivity() {
                         val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
                         val viewModel: HomeViewModel = viewModel("HomeViewModel", factory)
 
-
                         HomeScreen(
-                            isDarkTheme = false,
+                            isDarkTheme = viewModel.isDark.value,
                             isNetworkAvailable = true,
-                            onToggleTheme = { } ,
+                            onToggleTheme = { viewModel.isDark.value = !viewModel.isDark.value} ,
                             onNavigateToDetailScreen = navController::navigate,
                             viewModel = viewModel
-
                         )
-
                     }
                     composable("detail_screen") {
                         DetailScreen(navController = navController)
-
                     }
 
                     /*
@@ -75,4 +73,8 @@ class MainActivity : ComponentActivity() {
 
         }
     }
+
+
+
+
 }

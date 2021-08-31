@@ -9,6 +9,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavController
 import com.plcoding.meditationui.ui.HomeView
 import com.plcoding.meditationui.ui.HomeViewModel
+import com.plcoding.meditationui.ui.components.ToggleThemeAppBar
 import com.plcoding.meditationui.ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -25,19 +26,22 @@ fun HomeScreen(
 
     val loading = viewModel.loading.value
 
+    val isDarkTheme = viewModel.isDark.value
+
     val scaffoldState = rememberScaffoldState()
 
 
     AppTheme(
-        darkTheme = true,
+        darkTheme = isDarkTheme,
         isNetworkAvailable =  true,
-        displayProgressBar = false,
+        displayProgressBar = loading,
         scaffoldState = scaffoldState
     ){
         Scaffold(
-            /*topBar = {
-                ToggelThemeBar()
-                },*/
+            topBar = {
+                ToggleThemeAppBar(
+                    onToggleTheme = { onToggleTheme() })
+                },
                 scaffoldState = scaffoldState
         )
                 {
