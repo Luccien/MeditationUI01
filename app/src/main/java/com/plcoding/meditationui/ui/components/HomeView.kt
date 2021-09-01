@@ -401,12 +401,7 @@ fun GreetingSection(
                 style = MaterialTheme.typography.body1
             )
         }
-        Icon(
-            painter = painterResource(id = com.plcoding.meditationui.R.drawable.ic_search),
-            contentDescription = "Search",
-            tint = Color.White,
-            modifier = Modifier.size(24.dp)
-        )
+
     }
 }
 
