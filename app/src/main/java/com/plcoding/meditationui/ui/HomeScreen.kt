@@ -26,7 +26,6 @@ fun HomeScreen(
 
     val loading = viewModel.loading.value
 
-    val isDarkTheme = viewModel.isDark.value
 
     val scaffoldState = rememberScaffoldState()
 

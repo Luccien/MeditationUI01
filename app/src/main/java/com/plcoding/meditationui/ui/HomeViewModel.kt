@@ -13,7 +13,7 @@ class HomeViewModel
 constructor()
     : ViewModel() {
 
-    val isDark = mutableStateOf(false)
+
     val loading = mutableStateOf(false)
 
     fun loadTest(){

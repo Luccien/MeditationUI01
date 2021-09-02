@@ -13,14 +13,18 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.plcoding.meditationui.ui.DetailScreen
 import com.plcoding.meditationui.ui.HomeViewModel
-import com.plcoding.meditationui.ui.theme.JetpackComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.compose.*
+import com.plcoding.meditationui.datastore.SettingsDataStore
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+
+    @Inject
+    lateinit var settingsDataStore: SettingsDataStore
 
     @ExperimentalFoundationApi
     @ExperimentalComposeUiApi
@@ -37,9 +41,9 @@ class MainActivity : ComponentActivity() {
                         val viewModel: HomeViewModel = viewModel("HomeViewModel", factory)
 
                         HomeScreen(
-                            isDarkTheme = viewModel.isDark.value,
+                            isDarkTheme = settingsDataStore.isDark.value,
                             isNetworkAvailable = true,
-                            onToggleTheme = { viewModel.isDark.value = !viewModel.isDark.value} ,
+                            onToggleTheme = settingsDataStore::toggleTheme,
                             onNavigateToDetailScreen = navController::navigate,
                             viewModel = viewModel
                         )
