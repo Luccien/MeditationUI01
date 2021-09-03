@@ -48,8 +48,15 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel
                         )
                     }
-                    composable("detail_screen") {
-                        DetailScreen(navController = navController)
+                    composable("detail_screen") {navBackStackEntry ->
+                        val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
+                        val viewModel: HomeViewModel = viewModel("HomeViewModel", factory)
+
+                        DetailScreen(
+                            isDarkTheme = settingsDataStore.isDark.value,
+                            isNetworkAvailable = true,
+                            onToggleTheme = settingsDataStore::toggleTheme,
+                            viewModel = viewModel)
                     }
 
                     /*
