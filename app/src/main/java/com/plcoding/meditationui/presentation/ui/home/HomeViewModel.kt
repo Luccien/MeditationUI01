@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui
+package com.plcoding.meditationui.presentation.ui.home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui.theme
+package com.plcoding.meditationui.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color

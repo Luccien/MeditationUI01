@@ -1,7 +1,7 @@
 package com.plcoding.meditationui.di
 
 import android.content.Context
-import com.plcoding.meditationui.MediatationApplication
+import com.plcoding.meditationui.presentation.MediatationApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

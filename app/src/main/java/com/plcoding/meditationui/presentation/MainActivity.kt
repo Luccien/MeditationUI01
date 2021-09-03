@@ -1,4 +1,4 @@
-package com.plcoding.meditationui
+package com.plcoding.meditationui.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,10 +11,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.plcoding.meditationui.ui.DetailScreen
-import com.plcoding.meditationui.ui.HomeViewModel
+import com.plcoding.meditationui.presentation.ui.DetailScreen
+import com.plcoding.meditationui.presentation.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.compose.*
+import com.plcoding.meditationui.presentation.ui.home.HomeScreen
 import com.plcoding.meditationui.datastore.SettingsDataStore
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui
+package com.plcoding.meditationui.presentation.ui
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -22,13 +22,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.plcoding.meditationui.Feature
 import com.plcoding.meditationui.R
 import com.plcoding.meditationui.standardQuadFromTo
-import com.plcoding.meditationui.ui.components.BottomMenuContent
-import com.plcoding.meditationui.ui.theme.*
+import com.plcoding.meditationui.presentation.components.BottomMenuContent
+import com.plcoding.meditationui.presentation.theme.*
 import kotlinx.coroutines.launch
 
 

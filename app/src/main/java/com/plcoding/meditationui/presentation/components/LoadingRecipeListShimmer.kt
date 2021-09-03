@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui.components
+package com.plcoding.meditationui.presentation.components
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.BoxWithConstraints

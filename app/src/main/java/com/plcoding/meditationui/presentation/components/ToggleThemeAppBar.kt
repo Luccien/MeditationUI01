@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui.components
+package com.plcoding.meditationui.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

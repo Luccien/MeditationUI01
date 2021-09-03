@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui.components
+package com.plcoding.meditationui.presentation.components
 
 import androidx.annotation.DrawableRes
 

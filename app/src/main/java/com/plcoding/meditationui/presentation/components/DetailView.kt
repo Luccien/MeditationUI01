@@ -1,4 +1,4 @@
-package com.plcoding.meditationui.ui
+package com.plcoding.meditationui.presentation.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box

@@ -1,4 +1,4 @@
-package com.plcoding.meditationui
+package com.plcoding.meditationui.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
