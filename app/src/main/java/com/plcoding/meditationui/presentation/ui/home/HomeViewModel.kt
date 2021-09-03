@@ -16,10 +16,6 @@ constructor()
 
     val loading = mutableStateOf(false)
 
-    fun loadTest(){
-        viewModelScope.launch {
 
-        }
-    }
 
 }

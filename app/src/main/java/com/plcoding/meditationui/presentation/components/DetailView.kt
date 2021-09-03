@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 
 @ExperimentalFoundationApi
 @Composable
-fun DetailView() {
+fun MusicView() {
 
     val scaffoldState = rememberScaffoldState()
     Surface(

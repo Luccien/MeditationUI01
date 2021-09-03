@@ -11,12 +11,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.plcoding.meditationui.presentation.ui.DetailScreen
+import com.plcoding.meditationui.presentation.ui.MusicScreen
 import com.plcoding.meditationui.presentation.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.compose.*
 import com.plcoding.meditationui.presentation.ui.home.HomeScreen
 import com.plcoding.meditationui.datastore.SettingsDataStore
+import com.plcoding.meditationui.presentation.ui.music.MusicViewModel
 import javax.inject.Inject
 
 
@@ -49,11 +50,11 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel
                         )
                     }
-                    composable("detail_screen") {navBackStackEntry ->
+                    composable("music_screen") {navBackStackEntry ->
                         val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-                        val viewModel: HomeViewModel = viewModel("HomeViewModel", factory)
+                        val viewModel: MusicViewModel = viewModel("MusicViewModel", factory)
 
-                        DetailScreen(
+                        MusicScreen(
                             isDarkTheme = settingsDataStore.isDark.value,
                             isNetworkAvailable = true,
                             onToggleTheme = settingsDataStore::toggleTheme,

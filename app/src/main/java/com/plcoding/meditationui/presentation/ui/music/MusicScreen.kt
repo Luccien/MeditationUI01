@@ -9,19 +9,19 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import com.plcoding.meditationui.presentation.components.ToggleThemeAppBar
 import com.plcoding.meditationui.presentation.theme.AppTheme
 import com.plcoding.meditationui.presentation.ui.home.HomeViewModel
+import com.plcoding.meditationui.presentation.ui.music.MusicViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @ExperimentalFoundationApi
 @ExperimentalComposeUiApi
 @Composable
-fun DetailScreen(
+fun MusicScreen(
     isDarkTheme: Boolean,
     isNetworkAvailable: Boolean,
     onToggleTheme: () -> Unit,
-    viewModel: HomeViewModel
+    viewModel: MusicViewModel
 ) {
 
-// TODO -- another viewmodel for DetailScreen -- othervise loading will be same for both
     val loading = viewModel.loading.value
 
 
@@ -42,7 +42,7 @@ fun DetailScreen(
         )
         {
 
-            DetailView()
+            MusicView()
 
         }
 

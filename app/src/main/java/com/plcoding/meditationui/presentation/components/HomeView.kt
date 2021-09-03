@@ -152,7 +152,7 @@ fun BottomMenu(
                 inactiveTextColor = inactiveTextColor
             ) {
                 selectedItemIndex = index
-                onNavigateToDetailScreen("detail_screen")
+                onNavigateToDetailScreen("music_screen")
 
             }
         }
@@ -423,8 +423,6 @@ fun ChipSection(
                     modifier = Modifier
                         .padding(start = 15.dp, top = 15.dp, bottom = 15.dp)
                         .clickable {
-
-                            //onNavigateToDetailScreen("detail_screen")
 
                             selectedChipIndex = it
                             scope.launch {
