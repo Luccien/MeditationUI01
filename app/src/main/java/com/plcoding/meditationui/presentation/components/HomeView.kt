@@ -95,23 +95,28 @@ fun HomeView(onNavigateToDetailScreen: (String) -> Unit,
                     items = listOf(
                         BottomMenuContent(
                             "Home",
-                            R.drawable.ic_home
+                            R.drawable.ic_home,
+                            "home_screen"
                         ),
                         BottomMenuContent(
                             "Meditate",
-                            R.drawable.ic_bubble
+                            R.drawable.ic_bubble,
+                            "meditation_screen"
                         ),
                         BottomMenuContent(
                             "Sleep",
-                            R.drawable.ic_moon
+                            R.drawable.ic_moon,
+                            "sleep_screen"
                         ),
                         BottomMenuContent(
                             "Music",
-                            R.drawable.ic_music
+                            R.drawable.ic_music,
+                            "music_screen"
                         ),
                         BottomMenuContent(
                             "Profile",
-                            R.drawable.ic_profile
+                            R.drawable.ic_profile,
+                            "profile_screen"
                         ),
                     ), modifier = Modifier.align(Alignment.BottomCenter),
                     onNavigateToDetailScreen = onNavigateToDetailScreen                )
@@ -152,7 +157,7 @@ fun BottomMenu(
                 inactiveTextColor = inactiveTextColor
             ) {
                 selectedItemIndex = index
-                onNavigateToDetailScreen("music_screen")
+                onNavigateToDetailScreen(item.navigationPath)
 
             }
         }
