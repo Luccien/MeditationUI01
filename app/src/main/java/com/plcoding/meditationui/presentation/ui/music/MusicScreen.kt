@@ -25,10 +25,12 @@ fun MusicScreen(
 ) {
 
     val loading = viewModel.loading.value
-
+    val music = viewModel.music.value
 
     val scaffoldState = rememberScaffoldState()
 
+    //viewModel.onTriggerEvent(RecipeEvent.GetRecipeEvent(recipeId)) // TODO  onTriggerEvent
+    viewModel.getMusic()
 
     AppTheme(
         darkTheme = isDarkTheme,
@@ -45,12 +47,15 @@ fun MusicScreen(
         )
         {
 
-            MusicView(
-                onNavigateToDetailScreen = onNavigateToDetailScreen,
-                message = message,
-                scaffoldState = scaffoldState
+            if(music != null) {
+                music?.let { MusicView(
+                    onNavigateToDetailScreen = onNavigateToDetailScreen,
+                    message = it.title,
+                    scaffoldState = scaffoldState
+                )
+                }
+            }
 
-            )
 
 
 
