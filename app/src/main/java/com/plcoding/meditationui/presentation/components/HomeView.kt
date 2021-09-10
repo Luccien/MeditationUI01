@@ -26,6 +26,7 @@ import com.plcoding.meditationui.Feature
 import com.plcoding.meditationui.standardQuadFromTo
 import com.plcoding.meditationui.presentation.components.BottomMenuContent
 import com.plcoding.meditationui.presentation.components.bottomMenuItems
+import com.plcoding.meditationui.presentation.components.itemNavArguments
 import com.plcoding.meditationui.presentation.theme.*
 import kotlinx.coroutines.launch
 
@@ -133,8 +134,11 @@ fun BottomMenu(
                 activeTextColor = activeTextColor,
                 inactiveTextColor = inactiveTextColor
             ) {
-                selectedItemIndex = index
-                onNavigateToDetailScreen(item.navigationPath)
+                //selectedItemIndex = index // todo leave or unnecessary?
+
+
+                val navArguments = itemNavArguments(item.navigationPath)
+                onNavigateToDetailScreen(item.navigationPath + navArguments)
 
             }
         }
@@ -360,7 +364,7 @@ fun CurrentMeditation(
 
 @Composable
 fun GreetingSection(
-    name: String = "Lucien"
+    name: String? = "Lucien"
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -373,7 +377,7 @@ fun GreetingSection(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Good morning, $name",
+                text = "Hello, $name",
                 style = MaterialTheme.typography.h2
             )
             Text(

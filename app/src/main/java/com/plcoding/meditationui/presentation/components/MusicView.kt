@@ -12,7 +12,9 @@ import com.plcoding.meditationui.presentation.components.bottomMenuItems
 @ExperimentalFoundationApi
 @Composable
 fun MusicView(onNavigateToDetailScreen: (String) -> Unit,
+              message: String?,
               scaffoldState: ScaffoldState
+
 ) {
 
 
@@ -21,13 +23,14 @@ fun MusicView(onNavigateToDetailScreen: (String) -> Unit,
             .fillMaxSize()
     ) {
         Column {
-            GreetingSection()
+            GreetingSection(name = message)
 
             BottomMenu(
                 items = bottomMenuItems,
                 //modifier = Modifier.align(Alignment.BottomCenter),
                 onNavigateToDetailScreen = onNavigateToDetailScreen,
                 initialSelectedItemIndex = 3
+
             )
 
         }

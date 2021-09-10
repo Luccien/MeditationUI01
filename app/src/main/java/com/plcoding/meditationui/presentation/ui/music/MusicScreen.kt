@@ -20,6 +20,7 @@ fun MusicScreen(
     isNetworkAvailable: Boolean,
     onToggleTheme: () -> Unit,
     onNavigateToDetailScreen: (String) -> Unit,
+    message: String?,
     viewModel: MusicViewModel
 ) {
 
@@ -46,7 +47,10 @@ fun MusicScreen(
 
             MusicView(
                 onNavigateToDetailScreen = onNavigateToDetailScreen,
-                scaffoldState = scaffoldState)
+                message = message,
+                scaffoldState = scaffoldState
+
+            )
 
 
 

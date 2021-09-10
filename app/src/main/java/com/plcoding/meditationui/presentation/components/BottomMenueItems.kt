@@ -2,6 +2,19 @@ package com.plcoding.meditationui.presentation.components
 
 import com.plcoding.meditationui.R
 
+
+fun itemNavArguments(navigationPath:String):String{
+    bottomMenuItems.forEachIndexed { index, item ->
+        if(item.navigationPath == navigationPath){
+            if(navigationPath == "music_screen" ){
+                val message = "test"
+                return "/${message}"
+            }
+        }
+    }
+    return ""
+}
+
 val bottomMenuItems = listOf(
     BottomMenuContent(
         "Home",

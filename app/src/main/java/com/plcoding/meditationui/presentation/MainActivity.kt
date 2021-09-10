@@ -8,6 +8,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -50,17 +51,28 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel
                         )
                     }
-                    composable("music_screen") {navBackStackEntry ->
-                        val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-                        val viewModel: MusicViewModel = viewModel("MusicViewModel", factory)
+                    composable("music_screen/{message}",
+                            arguments = listOf(
+                            navArgument("message") {
+                                type = NavType.StringType
+                            }
+                            ) )
+                            {navBackStackEntry ->
+                               /* val message = remember {
+                                    navBackStackEntry.arguments?.getString("message")
+                                }
+                                */
+                                val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
+                                 val viewModel: MusicViewModel = viewModel("MusicViewModel", factory)
 
-                        MusicScreen(
+                            MusicScreen(
                             isDarkTheme = settingsDataStore.isDark.value,
                             isNetworkAvailable = true,
                             onToggleTheme = settingsDataStore::toggleTheme,
                             onNavigateToDetailScreen = navController::navigate,
-                            viewModel = viewModel)
-                    }
+                                message = navBackStackEntry.arguments?.getString("message"),//navBackStackEntry.arguments?.getString("message"),
+                                viewModel = viewModel)
+                        }
 
                     /*
                     composable(
