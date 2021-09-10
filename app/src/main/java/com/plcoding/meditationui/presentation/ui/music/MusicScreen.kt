@@ -19,6 +19,7 @@ fun MusicScreen(
     isDarkTheme: Boolean,
     isNetworkAvailable: Boolean,
     onToggleTheme: () -> Unit,
+    onNavigateToDetailScreen: (String) -> Unit,
     viewModel: MusicViewModel
 ) {
 
@@ -26,6 +27,7 @@ fun MusicScreen(
 
 
     val scaffoldState = rememberScaffoldState()
+
 
     AppTheme(
         darkTheme = isDarkTheme,
@@ -42,7 +44,11 @@ fun MusicScreen(
         )
         {
 
-            MusicView()
+            MusicView(
+                onNavigateToDetailScreen = onNavigateToDetailScreen,
+                scaffoldState = scaffoldState)
+
+
 
         }
 
@@ -50,7 +56,6 @@ fun MusicScreen(
 
     }
 }
-
 
 
 

@@ -58,6 +58,7 @@ class MainActivity : ComponentActivity() {
                             isDarkTheme = settingsDataStore.isDark.value,
                             isNetworkAvailable = true,
                             onToggleTheme = settingsDataStore::toggleTheme,
+                            onNavigateToDetailScreen = navController::navigate,
                             viewModel = viewModel)
                     }
 
