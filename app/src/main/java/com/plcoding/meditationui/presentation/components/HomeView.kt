@@ -23,9 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.plcoding.meditationui.Feature
-import com.plcoding.meditationui.R
 import com.plcoding.meditationui.standardQuadFromTo
 import com.plcoding.meditationui.presentation.components.BottomMenuContent
+import com.plcoding.meditationui.presentation.components.bottomMenuItems
 import com.plcoding.meditationui.presentation.theme.*
 import kotlinx.coroutines.launch
 
@@ -92,39 +92,16 @@ fun HomeView(onNavigateToDetailScreen: (String) -> Unit,
                 }
 
                 BottomMenu(
-                    items = listOf(
-                        BottomMenuContent(
-                            "Home",
-                            R.drawable.ic_home,
-                            "home_screen"
-                        ),
-                        BottomMenuContent(
-                            "Meditate",
-                            R.drawable.ic_bubble,
-                            "meditation_screen"
-                        ),
-                        BottomMenuContent(
-                            "Sleep",
-                            R.drawable.ic_moon,
-                            "sleep_screen"
-                        ),
-                        BottomMenuContent(
-                            "Music",
-                            R.drawable.ic_music,
-                            "music_screen"
-                        ),
-                        BottomMenuContent(
-                            "Profile",
-                            R.drawable.ic_profile,
-                            "profile_screen"
-                        ),
-                    ), modifier = Modifier.align(Alignment.BottomCenter),
+                    items = bottomMenuItems,
+                    modifier = Modifier.align(Alignment.BottomCenter),
                     onNavigateToDetailScreen = onNavigateToDetailScreen                )
 
             }
 
 }
+/////////
 
+////////
 
 
 @Composable
