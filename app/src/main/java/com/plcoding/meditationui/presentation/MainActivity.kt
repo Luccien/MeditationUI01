@@ -58,10 +58,7 @@ class MainActivity : ComponentActivity() {
                             }
                             ) )
                             {navBackStackEntry ->
-                               /* val message = remember {
-                                    navBackStackEntry.arguments?.getString("message")
-                                }
-                                */
+
                                 val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
                                  val viewModel: MusicViewModel = viewModel("MusicViewModel", factory)
 
@@ -74,27 +71,7 @@ class MainActivity : ComponentActivity() {
                                 viewModel = viewModel)
                         }
 
-                    /*
-                    composable(
-                        "pokemon_detail_screen/{dominantColor}/{name}",
-                        arguments = listOf(
-                            navArgument("dominantColor") {
-                                type = NavType.IntType
-                            },
-                            navArgument("name") {
-                                type = NavType.StringType
-                            }
-                        )
-                    ) {
-                        val dominantColor = remember {
-                            val color = it.arguments?.getInt("dominantColor")
-                            color?.let { Color(it) } ?: Color.White
-                        }
-                        val name = remember {
-                            it.arguments?.getString("name")
-                        }
 
-                    }*/
                 }
 
         }
