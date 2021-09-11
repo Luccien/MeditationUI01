@@ -7,7 +7,7 @@ import com.plcoding.meditationui.presentation.navigation.Screen
 fun itemNavArguments(navigationPath:String):String{
     bottomMenuItems.forEachIndexed { index, item ->
         if(item.navigationPath == navigationPath){
-            if(navigationPath == Screen.MusicScreen.route ){
+            if(navigationPath == Screen.MusicScreen.route){
                 val message = "test"
                 return "/${message}"
             }

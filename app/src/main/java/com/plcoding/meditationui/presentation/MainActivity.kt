@@ -20,15 +20,30 @@ import com.plcoding.meditationui.presentation.ui.home.HomeScreen
 import com.plcoding.meditationui.datastore.SettingsDataStore
 import com.plcoding.meditationui.presentation.navigation.Screen
 import com.plcoding.meditationui.presentation.ui.music.MusicViewModel
+import com.plcoding.meditationui.presentation.util.ConnectivityManager
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    @Inject
+    lateinit var connectivityManager: ConnectivityManager
+
 
     @Inject
     lateinit var settingsDataStore: SettingsDataStore
+
+    override fun onStart() {
+        super.onStart()
+        connectivityManager.registerConnectionObserver(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        connectivityManager.unregisterConnectionObserver(this)
+    }
+
 
     @ExperimentalFoundationApi
     @ExperimentalComposeUiApi
@@ -46,7 +61,7 @@ class MainActivity : ComponentActivity() {
 
                         HomeScreen(
                             isDarkTheme = settingsDataStore.isDark.value,
-                            isNetworkAvailable = true,
+                            isNetworkAvailable = connectivityManager.isNetworkAvailable.value,
                             onToggleTheme = settingsDataStore::toggleTheme,
                             onNavigateToDetailScreen = navController::navigate,
                             viewModel = viewModel
@@ -65,7 +80,7 @@ class MainActivity : ComponentActivity() {
 
                             MusicScreen(
                             isDarkTheme = settingsDataStore.isDark.value,
-                            isNetworkAvailable = true,
+                            isNetworkAvailable = connectivityManager.isNetworkAvailable.value,
                             onToggleTheme = settingsDataStore::toggleTheme,
                             onNavigateToDetailScreen = navController::navigate,
                                 message = navBackStackEntry.arguments?.getString("message"),//navBackStackEntry.arguments?.getString("message"),
