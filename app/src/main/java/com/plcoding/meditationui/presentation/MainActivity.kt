@@ -18,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.compose.*
 import com.plcoding.meditationui.presentation.ui.home.HomeScreen
 import com.plcoding.meditationui.datastore.SettingsDataStore
+import com.plcoding.meditationui.presentation.navigation.Screen
 import com.plcoding.meditationui.presentation.ui.music.MusicViewModel
 import javax.inject.Inject
 
@@ -37,9 +38,9 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = "home_screen"
+                    startDestination = Screen.HomeScreen.route
                 ) {
-                    composable("home_screen") {navBackStackEntry ->
+                    composable(Screen.HomeScreen.route ) {navBackStackEntry ->
                         val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
                         val viewModel: HomeViewModel = viewModel("HomeViewModel", factory)
 
@@ -51,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel
                         )
                     }
-                    composable("music_screen/{message}",
+                    composable(Screen.MusicScreen.route + "/{message}",
                             arguments = listOf(
                             navArgument("message") {
                                 type = NavType.StringType

@@ -1,12 +1,13 @@
 package com.plcoding.meditationui.presentation.components
 
 import com.plcoding.meditationui.R
+import com.plcoding.meditationui.presentation.navigation.Screen
 
 
 fun itemNavArguments(navigationPath:String):String{
     bottomMenuItems.forEachIndexed { index, item ->
         if(item.navigationPath == navigationPath){
-            if(navigationPath == "music_screen" ){
+            if(navigationPath == Screen.MusicScreen.route ){
                 val message = "test"
                 return "/${message}"
             }
@@ -19,7 +20,7 @@ val bottomMenuItems = listOf(
     BottomMenuContent(
         "Home",
         R.drawable.ic_home,
-        "home_screen"
+        Screen.HomeScreen.route
     ),
     BottomMenuContent(
         "Meditate",
@@ -34,7 +35,7 @@ val bottomMenuItems = listOf(
     BottomMenuContent(
         "Music",
         R.drawable.ic_music,
-        "music_screen"
+        Screen.MusicScreen.route
     ),
     BottomMenuContent(
         "Profile",
