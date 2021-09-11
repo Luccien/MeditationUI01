@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.plcoding.meditationui.presentation.components.ConnectivityMonitor
 
 
 private val LightThemeColors = lightColors(
@@ -59,8 +60,11 @@ fun AppTheme(
                 .fillMaxSize()
                 .background(color = if (!darkTheme) Grey1 else Color.Black)
         ){
+
             Column{
-                content()
+                   ConnectivityMonitor(isNetworkAvailable = isNetworkAvailable)
+                    content()
+
             }
 
         }

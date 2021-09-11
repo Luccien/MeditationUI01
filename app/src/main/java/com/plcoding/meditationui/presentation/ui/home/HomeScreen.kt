@@ -30,7 +30,7 @@ fun HomeScreen(
 
     AppTheme(
         darkTheme = isDarkTheme,
-        isNetworkAvailable =  true,
+        isNetworkAvailable =  isNetworkAvailable,
         displayProgressBar = loading,
         scaffoldState = scaffoldState
     ){
