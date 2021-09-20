@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
                             isNetworkAvailable = connectivityManager.isNetworkAvailable.value,
                             onToggleTheme = settingsDataStore::toggleTheme,
                             onNavigateToDetailScreen = navController::navigate,
-                                message = navBackStackEntry.arguments?.getString("message"),//navBackStackEntry.arguments?.getString("message"),
+                                message = navBackStackEntry.arguments?.getString("message"),
                                 viewModel = viewModel)
                         }
 

@@ -134,9 +134,6 @@ fun BottomMenu(
                 activeTextColor = activeTextColor,
                 inactiveTextColor = inactiveTextColor
             ) {
-                //selectedItemIndex = index // todo leave or unnecessary?
-
-
                 val navArguments = itemNavArguments(item.navigationPath)
                 onNavigateToDetailScreen(item.navigationPath + navArguments)
 
@@ -364,7 +361,7 @@ fun CurrentMeditation(
 
 @Composable
 fun GreetingSection(
-    name: String? = "Lucien"
+    caption: String? = "Greeting Section"
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -377,7 +374,7 @@ fun GreetingSection(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Hello, $name",
+                text = "$caption",
                 style = MaterialTheme.typography.h2
             )
             Text(

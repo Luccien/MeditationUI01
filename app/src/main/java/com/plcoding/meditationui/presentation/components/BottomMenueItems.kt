@@ -8,7 +8,7 @@ fun itemNavArguments(navigationPath:String):String{
     bottomMenuItems.forEachIndexed { index, item ->
         if(item.navigationPath == navigationPath){
             if(navigationPath == Screen.MusicScreen.route){
-                val message = "test"
+                val message = "Music"
                 return "/${message}"
             }
         }

@@ -23,7 +23,7 @@ fun MusicScreen(
     isNetworkAvailable: Boolean,
     onToggleTheme: () -> Unit,
     onNavigateToDetailScreen: (String) -> Unit,
-    message: String?, // todo add message to screen/view
+    message: String?,
     viewModel: MusicViewModel
 ) {
 
@@ -62,13 +62,13 @@ fun MusicScreen(
                     LoadingShimmer(imageHeight = IMAGE_HEIGHT.dp)
                 }
                 else if(!loading && music == null && onLoad){
-                    TODO("Show Invalid Recipe")
+                    TODO("Show Invalid ")
                 }
                 else {
                     music?.let {
                         MusicView(
                             onNavigateToDetailScreen = onNavigateToDetailScreen,
-                            message = it.title,
+                            message = message + " " + it.title,
                             scaffoldState = scaffoldState
                         )
                     }

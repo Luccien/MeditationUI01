@@ -23,7 +23,7 @@ fun MusicView(onNavigateToDetailScreen: (String) -> Unit,
             .fillMaxSize()
     ) {
         Column {
-            GreetingSection(name = message)
+            GreetingSection(caption = message)
 
             BottomMenu(
                 items = bottomMenuItems,
