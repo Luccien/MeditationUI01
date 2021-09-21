@@ -38,6 +38,7 @@ import kotlinx.coroutines.launch
 @ExperimentalFoundationApi
 @Composable
 fun HomeView(onNavigateToDetailScreen: (String) -> Unit,
+             message: String?,
              scaffoldState:ScaffoldState) {
 
             Box(
@@ -45,7 +46,7 @@ fun HomeView(onNavigateToDetailScreen: (String) -> Unit,
                     .fillMaxSize()
             ) {
                 Column {
-                    GreetingSection()
+                    GreetingSection(message)
                     CurrentMeditation()
 
                     ChipSection(
@@ -361,7 +362,7 @@ fun CurrentMeditation(
 
 @Composable
 fun GreetingSection(
-    caption: String? = "Greeting Section"
+    caption: String? = ""//""Greeting Section"
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,

@@ -1,5 +1,6 @@
 package com.plcoding.meditationui.di
 
+import com.plcoding.meditationui.interactors.GetHome
 import com.plcoding.meditationui.interactors.GetMusic
 import dagger.Module
 import dagger.Provides
@@ -17,5 +18,11 @@ object InteractorsModule {
     fun provideGetMusic( ): GetMusic {
         return GetMusic()
         }
+
+    @ViewModelScoped
+    @Provides
+    fun provideGetHome( ): GetHome {
+        return GetHome()
+    }
 
 }

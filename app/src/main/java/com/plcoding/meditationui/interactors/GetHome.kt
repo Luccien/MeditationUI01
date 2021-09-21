@@ -1,19 +1,19 @@
 package com.plcoding.meditationui.interactors
 
 import com.plcoding.meditationui.domain.data.DataState
+import com.plcoding.meditationui.domain.model.Home
 import com.plcoding.meditationui.domain.model.Music
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class GetMusic {
+class GetHome {
 
-
-    val musicTitle = "No. 1"
+    val homeTitle = "Home"
 
     fun execute(
         isNetworkAvailable: Boolean
-    ): Flow<DataState<Music>> = flow {
+    ): Flow<DataState<Home>> = flow {
         try {
 
             emit(DataState.loading())
@@ -21,36 +21,36 @@ class GetMusic {
 
 
 
-            // get music from cache TODO
-            var music = Music(musicTitle)
+            // get home from cache TODO
+            var home = Home(homeTitle)
 
-            if(music != null){
-                emit(DataState.success(music))
+            if(home != null){
+                emit(DataState.success(home))
             }
-           else {
+            else {
                 if (isNetworkAvailable) {
-                    // get music from network TODO
-                    val networkMusic =  Music(musicTitle)
+                    // get home from network TODO
+                    val networkHome =  Music(homeTitle)
 
                     // insert into cache TODO
 
                 }
                 // get from cache TODO
-                music = Music(musicTitle)
+                home = Home(homeTitle)
 
                 // emit and finish
-                if(music != null){
-                    emit(DataState.success(music))
+                if(home != null){
+                    emit(DataState.success(home))
                 }
                 else{
-                    throw Exception("Unable to get music from the cache.")
+                    throw Exception("Unable to get home from the cache.")
                 }
             }
 
 
 
         } catch (e: Exception) {
-            emit(DataState.error<Music>(e.message?: "Unknown Error"))
+            emit(DataState.error<Home>(e.message?: "Unknown Error"))
         }
 
 
