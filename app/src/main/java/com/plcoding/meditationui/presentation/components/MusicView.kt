@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.plcoding.meditationui.presentation.components.BottomMenu
+import com.plcoding.meditationui.presentation.components.GreetingSection
 import com.plcoding.meditationui.presentation.components.bottomMenuItems
 
 @ExperimentalFoundationApi
