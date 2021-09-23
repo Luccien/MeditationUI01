@@ -20,8 +20,8 @@ class GetMusic {
             delay(1000)
 
             // testing error message in queue
-            emit(DataState.error<Music>("Unknown Error Music 1"))
-            emit(DataState.error<Music>("Unknown Error Music 2"))
+            //emit(DataState.error<Music>("Unknown Error Music 1"))
+            //emit(DataState.error<Music>("Unknown Error Music 2"))
 
             // get music from cache TODO
             var music = Music(musicTitle)

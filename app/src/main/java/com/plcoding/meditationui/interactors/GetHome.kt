@@ -20,8 +20,8 @@ class GetHome {
             delay(1000)
 
             // testing error message in queue
-            emit(DataState.error<Home>("Unknown Error Home 1"))
-            emit(DataState.error<Home>("Unknown Error Home 2"))
+            //emit(DataState.error<Home>("Unknown Error Home 1"))
+            //emit(DataState.error<Home>("Unknown Error Home 2"))
 
             // get home from cache TODO
             var home = Home(homeTitle)
