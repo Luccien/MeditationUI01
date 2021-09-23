@@ -36,7 +36,7 @@ fun HomeScreen(
     }
 
     val loading = viewModel.loading.value
-
+    val dialogQueue = viewModel.dialogQueue
 
     val scaffoldState = rememberScaffoldState()
 
@@ -45,7 +45,8 @@ fun HomeScreen(
         darkTheme = isDarkTheme,
         isNetworkAvailable =  isNetworkAvailable,
         displayProgressBar = loading,
-        scaffoldState = scaffoldState
+        scaffoldState = scaffoldState,
+        dialogQueue = dialogQueue.queue.value,
     ){
         Scaffold(
             topBar = {
@@ -73,12 +74,7 @@ fun HomeScreen(
                         }
                     }
 
-                   /*
-                    HomeView(
-                        onNavigateToDetailScreen = onNavigateToDetailScreen,
-                        scaffoldState = scaffoldState)
 
-                    */
                 }
 
 

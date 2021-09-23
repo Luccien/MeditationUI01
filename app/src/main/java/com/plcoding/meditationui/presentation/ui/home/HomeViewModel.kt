@@ -10,6 +10,7 @@ import com.plcoding.meditationui.domain.model.Music
 import com.plcoding.meditationui.interactors.GetHome
 import com.plcoding.meditationui.interactors.GetMusic
 import com.plcoding.meditationui.presentation.ui.music.MusicEvent
+import com.plcoding.meditationui.presentation.ui.util.DialogQueue
 import com.plcoding.meditationui.presentation.util.ConnectivityManager
 import com.plcoding.meditationui.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,6 +32,7 @@ constructor(
 
     val loading = mutableStateOf(false)
     val home: MutableState<Home?> = mutableStateOf(null)
+    val dialogQueue = DialogQueue()
 
 
 
@@ -63,7 +65,7 @@ constructor(
 
             dataState.error?.let { error ->
                 Log.e(TAG, "getHome: ${error}")
-                //dialogQueue.appendErrorMessage("An Error Occurred", error) TODO
+                dialogQueue.appendErrorMessage("An Error Occurred", error)
             }
 
         }.launchIn(viewModelScope)

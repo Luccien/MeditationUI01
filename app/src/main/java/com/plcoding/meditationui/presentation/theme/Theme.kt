@@ -12,6 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.plcoding.meditationui.presentation.components.ConnectivityMonitor
 import com.plcoding.meditationui.presentation.components.DefaultSnackbar
+import com.plcoding.meditationui.presentation.components.GenericDialog
+import com.plcoding.meditationui.presentation.components.GenericDialogInfo
+import java.util.*
 
 
 private val LightThemeColors = lightColors(
@@ -50,6 +53,7 @@ fun AppTheme(
     isNetworkAvailable: Boolean,
     displayProgressBar: Boolean,
     scaffoldState: ScaffoldState,
+    dialogQueue: Queue<GenericDialogInfo>? = null,
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
@@ -76,7 +80,26 @@ fun AppTheme(
                 },
                 modifier = Modifier.align(Alignment.BottomCenter)
             )
+            ProcessDialogQueue(
+                dialogQueue = dialogQueue,
+            )
 
         }
+    }
+}
+
+
+@Composable
+fun ProcessDialogQueue(
+    dialogQueue: Queue<GenericDialogInfo>?,
+) {
+    dialogQueue?.peek()?.let { dialogInfo ->
+        GenericDialog(
+            onDismiss = dialogInfo.onDismiss,
+            title = dialogInfo.title,
+            description = dialogInfo.description,
+            positiveAction = dialogInfo.positiveAction,
+            negativeAction = dialogInfo.negativeAction
+        )
     }
 }

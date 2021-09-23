@@ -38,7 +38,7 @@ fun MusicScreen(
 
         val loading = viewModel.loading.value
         val music = viewModel.music.value
-
+        val dialogQueue = viewModel.dialogQueue
         val scaffoldState = rememberScaffoldState()
 
 
@@ -46,7 +46,8 @@ fun MusicScreen(
             darkTheme = isDarkTheme,
             isNetworkAvailable = isNetworkAvailable,
             displayProgressBar = loading,
-            scaffoldState = scaffoldState
+            scaffoldState = scaffoldState,
+            dialogQueue = dialogQueue.queue.value,
         ) {
             Scaffold(
                 topBar = {

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.plcoding.meditationui.domain.model.Music
 import com.plcoding.meditationui.interactors.GetMusic
+import com.plcoding.meditationui.presentation.ui.util.DialogQueue
 import com.plcoding.meditationui.presentation.util.ConnectivityManager
 import com.plcoding.meditationui.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,7 +27,8 @@ class MusicViewModel
     val onLoad: MutableState<Boolean> = mutableStateOf(false)
 
     val loading = mutableStateOf(false)
-        val music: MutableState<Music?> = mutableStateOf(null)
+    val music: MutableState<Music?> = mutableStateOf(null)
+    val dialogQueue = DialogQueue()
 
 
 
@@ -60,7 +62,7 @@ fun getMusic(){
 
         dataState.error?.let { error ->
             Log.e(TAG, "getMusic: ${error}")
-            //dialogQueue.appendErrorMessage("An Error Occurred", error) TODO
+            dialogQueue.appendErrorMessage("An Error Occurred", error)
         }
 
     }.launchIn(viewModelScope)
