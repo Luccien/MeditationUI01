@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.plcoding.meditationui.presentation.components.BottomMenu
 import com.plcoding.meditationui.presentation.components.GreetingSection
@@ -27,15 +28,16 @@ fun MusicView(onNavigateToDetailScreen: (String) -> Unit,
         Column {
             GreetingSection(caption = message)
 
-            BottomMenu(
-                items = bottomMenuItems,
-                //modifier = Modifier.align(Alignment.BottomCenter),
-                onNavigateToDetailScreen = onNavigateToDetailScreen,
-                initialSelectedItemIndex = 3
 
-            )
 
         }
+        BottomMenu(
+            items = bottomMenuItems,
+            modifier = Modifier.align(Alignment.BottomCenter),
+            onNavigateToDetailScreen = onNavigateToDetailScreen,
+            initialSelectedItemIndex = 3
+
+        )
 
     }
 }
