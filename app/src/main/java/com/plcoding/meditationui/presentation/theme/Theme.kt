@@ -10,10 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.plcoding.meditationui.presentation.components.ConnectivityMonitor
-import com.plcoding.meditationui.presentation.components.DefaultSnackbar
-import com.plcoding.meditationui.presentation.components.GenericDialog
-import com.plcoding.meditationui.presentation.components.GenericDialogInfo
+import com.plcoding.meditationui.presentation.components.*
 import java.util.*
 
 
@@ -72,6 +69,7 @@ fun AppTheme(
                     content()
 
             }
+            CircularIndeterminateProgressBar(isDisplayed = displayProgressBar, 0.3f)
 
             DefaultSnackbar(
                 snackbarHostState = scaffoldState.snackbarHostState,
